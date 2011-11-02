@@ -123,7 +123,7 @@ module Lumber
 
   def self.add_lumber_logger(clazz, logger_name)
     clazz.class_eval do
-      class_inheritable_accessor :logger
+      class_attribute :logger
       self.logger = Log4r::Logger.new(logger_name)
 
       class << self
