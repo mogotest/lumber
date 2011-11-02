@@ -77,9 +77,9 @@ module Lumber
     begin
       clazz = class_name.constantize
 
-      if clazz.respond_to? :class_inheritable_accessor
+      if clazz.respond_to? :class_attribute
         clazz.class_eval do
-          class_inheritable_accessor :logger
+          class_attribute :logger
           self.logger = Log4r::Logger.new(class_logger_fullname)
         end
       end
